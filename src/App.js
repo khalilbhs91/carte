@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
-import khalil from './khalil.jpg'
-import Icone from './icone.ico'
 import './App.css'
-
-
+import Carte from "./carte";
+import Form from './form'
 
 class App extends Component {
+  state={
+    nameapp:'votre nom',
+    numberapp:'0000000000000000',
+    dateapp:'xx/xx'
+  }
+
+
+ //function aspirator
+ 
+ getform=(x,y,z)=>
+ {
+    this.setState({
+      nameapp:x,
+      numberapp:y,
+      dateapp:z
+    })
+ }
+
   render() {
     return (
-  <div className='carteP'>
-    <div className='carte'>
-      <div className='nom'>
-      <strong>CREDIT CARD</strong>
-      </div>
-      <img className='image' src={khalil}/>
-      <p className='codeP'><strong>6543876543218</strong></p>
-      <div className='footer'>
-      <div className='code'><strong>5422</strong></div>
-      <div className='code'><strong>dt11/mh/50</strong>
-      <img className='image2' src={Icone}/></div>
-      </div>
-
-    </div>
+  <div id="app">
+    <Carte name={this.state.nameapp} number={this.state.numberapp} date={this.state.dateapp}/>
+    <Form getdata={this.getform}/>
+    
   </div>
     );
   }}
